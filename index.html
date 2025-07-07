@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌧️ 감성 힐링 플레이어</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <video id="video" autoplay loop muted playsinline>
+    <source src="output1_slow.mp4" type="video/mp4" />
+    브라우저가 영상을 지원하지 않습니다.
+  </video>
+
+  <audio id="audio" autoplay loop>
+    <source src="rain.mp3" type="audio/mpeg" />
+    브라우저가 오디오를 지원하지 않습니다.
+  </audio>
+
+  <script>
+    // iOS 자동재생 대응
+    document.body.addEventListener("touchstart", () => {
+      document.getElementById("audio").play().catch(() => {});
+    }, { once: true });
+  </script>
+</body>
+</html>
